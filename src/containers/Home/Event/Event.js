@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./EventCSS.css"
+import "./event.css"
 
 export default class Event extends Component {
   render() {

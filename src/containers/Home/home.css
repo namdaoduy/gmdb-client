@@ -5,3 +5,15 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+@media (max-width: 1200px) {
+  .home-carousel {
+    margin-top: 0;
+  }
+}
+
+.capt {
+  background-color: #000000cc;
+  width: fit-content;
+  margin: auto;
+}
