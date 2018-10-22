@@ -1,0 +1,7 @@
+.home-carousel, .home-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
