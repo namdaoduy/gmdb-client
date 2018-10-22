@@ -1,3 +1,19 @@
 .brand-img {
   width: 40px;
 }
+
+.nav-title {
+  font-size: 26px;
+  padding: 2px 0px;
+  font-weight: bold;
+  width: 120px;
+}
+
+.nav-custom {
+  width: 120px;
+  text-align: center;
+}
+
+.drop-menu-custom {
+  width: 300px;
+}
