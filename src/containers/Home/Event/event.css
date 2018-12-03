@@ -1,9 +1,9 @@
 .home-event {
-  height: 300px;
   padding: 20px;
 }
 
 .event-inner {
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: white;
@@ -12,16 +12,17 @@
 
 .event-img-ctn {
   width: 100%;
-  height: 50%;
+  height: 100%;
   overflow: hidden;
 }
 
 .event-des-ctn {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 50%;
+  position: absolute;
+  bottom: 0;
+  height: 80px;
+  width: 100%;
   padding: 10px;
+  background-color: #cccccccc;
 }
 
 .event-img {
@@ -33,47 +34,4 @@ h3.event-des-title {
   font-size: 15px;
   font-weight: bold;
   flex: 1;
-}
-
-.event-des-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.event-des-place {
-  font-size: 13px;
-  border: 1px #7272724b solid;
-  padding: 3px 5px;
-  width: fit-content;
-  height: fit-content;
-  align-self: flex-end;
-}
-
-.event-des-calendar {
-  width: 70px;
-  height: 70px;
-  background-color: white;
-  box-shadow: 1px 1px 5px 2px #00000024;
-}
-
-.calendar-month {
-  font-size: 10px;
-  color: white;
-  text-align: center;
-  padding: 3px;
-  height: 30%;
-  background-color: #EB1212;
-}
-
-.calendar-date {
-  font-size: 25px;
-  text-align: center;
-  height: 50%;
-}
-
-.calendar-wd {
-  font-size: 10px;
-  text-align: center;
-  height: 20%;
 }

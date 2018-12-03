@@ -1,0 +1,31 @@
+.movie-header {
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.movie-header-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+}
+
+.movie-img {
+  height: 300px;
+  width: 200px;
+  background-color: blueviolet;
+  margin-right: 20px;
+}
+
+.movie-ctn {
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  background-color: #ccc;
+}
+
+
+

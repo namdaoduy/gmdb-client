@@ -4,7 +4,7 @@ import {
   Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'mdbreact'
 
-export default class Home extends Component {
+export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
