@@ -24,26 +24,24 @@ export default class NavBar extends Component {
     return (
       <Navbar color="warning-color" light expand="md" scrolling>
         <NavbarBrand href="/">
-          <img className="brand-img" src={require("./../../assets/images/GMDB.png")}></img>
+          <img className="brand-img" src={require("./../../assets/images/GMDB.png")} alt=""></img>
         </NavbarBrand>
+        <NavLink to="/" className="nav-title">GMDb</NavLink>
         {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
         <Collapse isOpen={this.state.collapse} navbar>
           <NavbarNav left>
-            <NavItem active width={50}>
-              <NavLink to="#">Trang chủ</NavLink>
+            <NavItem active>
+              <NavLink to="#" className="nav-custom">Trang chủ</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="#">Tham gia</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="#">Tạo sự kiện</NavLink>
+              <NavLink to="#" className="nav-custom">Lịch chiếu</NavLink>
             </NavItem>
             <NavItem>
               <Dropdown>
-                <DropdownToggle nav caret>Thể loại</DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem href="#">Mới nhất</DropdownItem>
-                  <DropdownItem href="#">Phổ biến nhất</DropdownItem>
+                <DropdownToggle nav caret className="nav-custom">Thể loại</DropdownToggle>
+                <DropdownMenu className="drop-menu-custom">
+                  <DropdownItem href="#">Đang chiếu</DropdownItem>
+                  <DropdownItem href="#">Sắp chiếu</DropdownItem>
                   <DropdownItem divider/>
                   <DropdownItem href="#">Công nghệ</DropdownItem>
                   <DropdownItem href="#">Hội thảo</DropdownItem>
@@ -54,10 +52,7 @@ export default class NavBar extends Component {
           </NavbarNav>
           <NavbarNav right>
             <NavItem>
-              <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
-            </NavItem>
-            <NavItem>
-              <NavLink to="#">Đăng nhập</NavLink>
+              <input className="form-control" type="text" placeholder="Tìm tên phim" aria-label="Tìm tên phim"/>
             </NavItem>
           </NavbarNav>
         </Collapse>
