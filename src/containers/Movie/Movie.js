@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./movie.css"
-import { NavBar } from './../NavBar'
+import { NavBar } from './../../components/NavBar'
 import { Button, Card, CardBody, CardTitle, CardText } from 'mdbreact'
 
 export default class Movie extends Component {

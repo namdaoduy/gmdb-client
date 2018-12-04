@@ -1,8 +1,8 @@
-.home-event {
+.home-movie {
   padding: 20px;
 }
 
-.event-inner {
+.home-movie-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -10,13 +10,13 @@
   box-shadow: 1px 1px 20px 0px #00000047;
 }
 
-.event-img-ctn {
+.home-movie-img-ctn {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.event-des-ctn {
+.home-movie-des-ctn {
   position: absolute;
   bottom: 0;
   height: 80px;
@@ -25,12 +25,12 @@
   background-color: #cccccccc;
 }
 
-.event-img {
+.home-movie-img {
   width: 100%;
   border-bottom: 1px #eeeeeeee solid;
 }
 
-h3.event-des-title {
+h3.home-movie-des-title {
   font-size: 15px;
   font-weight: bold;
   flex: 1;

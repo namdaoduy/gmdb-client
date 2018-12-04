@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import "./home.css"
-import { Event } from './Event'
-import { NavBar } from './../NavBar'
+import { HomeMovie } from './HomeMovie'
 import { Carousel } from './Carousel'
+import { NavBar } from './../../components/NavBar'
+import { Footer } from './../../components/Footer'
 
 export default class Home extends Component {
   render() {
@@ -13,19 +14,21 @@ export default class Home extends Component {
 
         <div id="home-list" className="home-list">
           <div className="row">
-            <Event />
-            <Event />
-            <Event />
+            <HomeMovie />
+            <HomeMovie />
+            <HomeMovie />
 
-            <Event />
-            <Event />
-            <Event />
+            <HomeMovie />
+            <HomeMovie />
+            <HomeMovie />
 
-            <Event />
-            <Event />
-            <Event />
+            <HomeMovie />
+            <HomeMovie />
+            <HomeMovie />
           </div>
         </div>
+
+        <Footer />
       </div>
     )
   }
