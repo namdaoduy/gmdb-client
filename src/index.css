@@ -34,3 +34,9 @@ div#root, div#root > div {
 .row {
   margin: 0;
 }
+
+.card-text {
+  line-height: 1.8em;
+  letter-spacing: 0.5px;
+  padding: 10px;
+}
