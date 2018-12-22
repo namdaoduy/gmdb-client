@@ -8,6 +8,12 @@
   height: 100%;
   background-color: white;
   box-shadow: 1px 1px 20px 0px #00000047;
+  transition: all .2s ease-in-out;
+}
+
+.home-movie-inner:hover {
+  transform: scale(1.1);
+  box-shadow: 1px 1px 40px 0px #00000047;
 }
 
 .home-movie-img-ctn {

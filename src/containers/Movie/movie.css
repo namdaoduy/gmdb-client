@@ -58,7 +58,7 @@
   background-color: red;
 }
 
-.movie-info-card {
+.movie-card {
   width: 100%;
   margin: 30px 0;
 }
@@ -72,3 +72,49 @@
   display: block;
 }
 
+.rating-stars {
+  color: rgb(255, 211, 67);
+}
+
+.rate-form-input {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px;
+  width: 90%;
+  max-width: 500px;
+  padding: 5px;
+  background-color: rgb(255, 248, 233);
+}
+
+textarea.rate-form-input {
+  height: 150px;
+}
+
+.movie-cine, .movie-cine-child {
+  margin-bottom: 10px;
+}
+
+.movie-cine-child .navbar-brand {
+  font-size: 15px;
+}
+
+.showtime-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.movie-showtime {
+  width: 60px;
+  height: 30px;
+  border: 1px dashed rgb(124, 124, 124);
+  border-radius: 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+.movie-showtime.ended {
+  background-color: #ccc;
+  color: darkgrey !important;
+}

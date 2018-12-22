@@ -1,0 +1,10 @@
+.comment-card {
+  margin-bottom: 20px;
+  max-width: 500px;
+  background-color: rgb(255, 248, 233);
+}
+
+.comment-name {
+  float: right;
+  color: rgb(148, 148, 148);
+}
