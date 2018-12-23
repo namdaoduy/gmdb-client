@@ -28,78 +28,40 @@
 
 /* ------------------------ */
 
-.add-container {
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #222939;
-}
-
-.add-form {
-  width: 90%;
-  max-width: 960px;
-  height: auto;
-  flex: 4;
-}
-
-.add-card {
-  padding: 20px;
-  margin: 20px 0;
-}
-
-.add-card > h5 {
-  margin-top: 30px;
-  font-weight: bold;
-}
-
-.add-form-input {
-  display: block;
-  width: 100%;
-  border: 1px solid #cccccccc;
-  border-radius: 5px;
-  padding-left: 5px;
-}
-
-.add-form-input.error {
-  background-color: rgba(231, 65, 65, 0.192);
-}
-
-.add-card .md-form {
-  margin: 10px 0;
-}
-
-.add-error {
-  font-size: 15px;
-  color: orangered;
-}
-
-.add-submit {
-  width: 200px;
-  height: 40px;
-  max-width: 80%;
-  display: block;
-  margin: 20px auto 10px auto;
-  font-size: 16px !important;
-  color: black !important;
-}
-
-.add-h2 {
-  font-size: 12px;
-  display: block;
-  margin: 10px auto;
-}
-
-.add-h2 > a {
-  color: #4285f4 !important;
-  font-weight: bold;
-}
-
-/* ----------------------------- */
-
 .admin-container {
   width: 100vw;
   min-height: 100vh;
 }
+
+.admin-inner {
+  min-height: 70vh;
+  background-color: #222939;
+  padding: 20px;
+}
+
+.admin-inner h1 {
+  color: white;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.admin-movie {
+  width: 90%;
+  max-width: 800px;
+  margin: 0px auto 30px auto;
+}
+
+.admin-table tr, .admin-table {
+  width: 100%;
+}
+
+.admin-table tr td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.admin-table tr td:first-child {
+  width: 120px;
+}
+

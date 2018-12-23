@@ -8,6 +8,7 @@ import { Form, Text, TextArea } from 'informed'
 import Rating from 'react-rating'
 import { Comment } from './Comment'
 import API from "./../../services/apis"
+import { Server } from './../../configs/server'
 
 
 export default class Movie extends Component {
@@ -118,16 +119,20 @@ export default class Movie extends Component {
         <div className="movie-header">
           <div className="movie-header-inner">
             <div className="movie-img">
-            
+              <img alt="" src={Server + this.state.movie.image_url}/>
             </div>
             <div className="movie-info">
               <h2 className="movie-name">{this.state.movie.name}</h2>
-              <h3 className="movie-type">{this.state.movie.types}</h3>
+              <h5 className="movie-type">{this.state.movie.types}</h5>
               <div className="movie-props">
-                <div className="movie-prop star">{this.state.movie.gmdb_rating}</div>
-                <div className="movie-prop imdb">{this.state.movie.imdb_rating}</div>
-                <div className="movie-prop limit">{this.state.movie.age_rated}</div>
-                <div className="movie-prop duration">{this.state.movie.duration}</div>
+                <div className="movie-prop star">{this.state.movie.gmdb_rating || "?"}
+                  <div>gmdb</div></div>
+                <div className="movie-prop imdb">{this.state.movie.imdb_rating || "?"}
+                  <div>imdb</div></div>
+                <div className="movie-prop limit">{this.state.movie.age_rated || "?"}
+                  <div>limit</div></div>
+                <div className="movie-prop duration">{this.state.movie.duration || "?"}
+                  <div>mins</div></div>
               </div>
             </div>
           </div>
@@ -143,7 +148,7 @@ export default class Movie extends Component {
               <h5>🎥 Trailer</h5>
               <iframe title="trailer"
                 className="trailer-iframe"
-                src="https://www.youtube.com/embed/WDkg3h8PCVU" 
+                src={this.state.movie.trailer_url}
                 frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen>
               </iframe>

@@ -23,7 +23,7 @@
 }
 
 .movie-img > img {
-  object-fit: cover;
+  width: 100%;
 }
 
 .movie-ctn {
@@ -55,7 +55,16 @@
   height: 60px;
   border-radius: 30px;
   margin: 10px;
-  background-color: red;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.movie-prop>div {
+  font-size: 10px;
+  height: 10px;
+  line-height: 10px;
 }
 
 .movie-card {
@@ -64,6 +73,7 @@
 }
 
 .trailer-iframe {
+  background-color: black;
   width: 100%;
   max-width: 900px;
   height: 500px;

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from 'react-router-dom'
 import "./homemovie.css"
+import  { Server } from './../../../configs/server'
 
 export default class HomeMovie extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class HomeMovie extends Component {
           <Link to={`/movie/${this.state.movie.movie_id}`}>
             <div className="home-movie-img-ctn">
               <img className="home-movie-img" 
-                src={require("./../../../assets/images/venom.jpg")} alt="">
+                src={Server + this.state.movie.image_url} alt="">
               </img>
             </div>
             <div className="home-movie-des-ctn">

@@ -3,8 +3,11 @@ import './admin.css'
 import {
   Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink
 } from 'mdbreact'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { Footer } from './../../components/Footer'
+import AdminComments from './AdminComments'
+import AdminMovies from './AdminMovies'
+import AdminTypes from './AdminTypes'
 
 export default class EventAdmin extends Component {
   constructor(props) {
@@ -35,13 +38,13 @@ export default class EventAdmin extends Component {
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
               <NavItem>
-                <NavLink to="#" className="nav-custom">Phim</NavLink>
+                <NavLink to="/admin/movies" className="nav-custom">Phim</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="#" className="nav-custom">Bình luận</NavLink>
+                <NavLink to="/admin/comments" className="nav-custom">Bình luận</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="#" className="nav-custom">Thể loại</NavLink>
+                <NavLink to="/admin/types" className="nav-custom">Thể loại</NavLink>
               </NavItem>
             </NavbarNav>
             <NavbarNav right>
@@ -54,10 +57,10 @@ export default class EventAdmin extends Component {
 
         <div className="admin-inner">
           <Switch>
-            <Route path="/admin/movies" render={(props) => <div>Hi</div>} />
-            <Route path="/admin/comments" render={(props) => <div>Hii</div>} />
-            <Route path="/admin/types" render={(props) => <div>Hiii</div>} />
-            <Route path="/admin" render={(props) => <div>Hiiii</div>} />
+            <Route path="/admin/movies" component={AdminMovies} />
+            <Route path="/admin/comments" component={AdminComments} />
+            <Route path="/admin/types" component={AdminTypes} />
+            <Redirect to="/admin/movies" />
           </Switch>
         </div>
 
