@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Form, Text } from 'informed'
 import { Card, CardTitle, Button } from 'mdbreact'
 import './login.css'
-// import API from './../../services/apis'
+import API from './../../services/apis'
 
 export default class Login extends Component {
   constructor(props) {
