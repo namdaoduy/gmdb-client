@@ -65,3 +65,17 @@
   width: 120px;
 }
 
+.admin-form-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  margin: 0;
+  background-color: rgb(255, 254, 241);
+}
+
+textarea.admin-form-input {
+  height: 150px;
+}
+
+.admin-form-input.error {
+  background-color: rgb(255, 203, 203);
+}

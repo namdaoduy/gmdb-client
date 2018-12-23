@@ -18,21 +18,17 @@ export default class Login extends Component {
   }
 
   onSubmit = (values) => {
-    // this.setState({
-    //   disabled: true,
-    //   error: ""
-    // })
-    // API.postLogin(values.username, values.password)
-    // .then(res => {
-    //   this.setState({disabled: false})
-    //   if (res.error) {
-    //     this.setState({error: JSON.stringify(res.error)})
-    //   }
-    //   else if (res.success) {
-    //     localStorage.setItem('easy_event_token', res.token);
-    //     this.props.history.push('/admin')
-    //   }
-    // })
+    this.setState({
+      disabled: true,
+      error: ""
+    })
+    API.postLogin(values.username, values.password)
+    .then(res => {
+      this.setState({disabled: false})
+      localStorage.setItem('gmdb_token', res.token);
+      this.props.history.push('/admin')
+    })
+    .catch(err => this.setState({error: JSON.stringify(err)}))
   }
 
   render() {

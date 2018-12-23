@@ -33,6 +33,14 @@ export default class Movie extends Component {
     }))
   }
 
+  onSubmitComment = (vals) => {
+    API.postComment(this.state.movie_id, vals.name, vals.email, vals.comment, vals.point || 4)
+    .then(res => {
+      this.fetchComments();
+    })
+    .catch(err => console.log(err))
+  }
+
   renderCines = () => {
     if (!this.state.cines) return null;
     return this.state.cines.map((cine, index) => (
@@ -69,7 +77,7 @@ export default class Movie extends Component {
   renderShowtime = (showtimes) => {
     const time = new Date().toTimeString().split(' ')[0];
     return showtimes.map((showtime) => (
-      <a href="#"
+      <a href="https://www.cgv.vn/"
         className={"movie-showtime" + (time < showtime ? "" : " ended")}>
         {showtime}
       </a>
@@ -155,19 +163,16 @@ export default class Movie extends Component {
 
               <h5>🎥 Giới thiệu</h5>
               <CardText>
-              {/* {`Aquaman: Đế vương Atlantis (tên gốc tiếng Anh: Aquaman) là phim điện ảnh siêu anh hùng của Mỹ dựa trên nhân vật Aquaman của DC Comics [7]. Đây là phần phim thứ sáu thuộc DC Extended Universe, do James Wan đảm nhiệm vai trò đạo diễn, David Leslie Johnson-McGoldrick và Will Beall thực hiện phần kịch bản từ phần cốt truyện của Wan, Beall và Geoff Johns. Phim có sự tham gia diễn xuất của Jason Momoa trong vai nhân vật chính, cùng với Amber Heard, Willem Dafoe, Patrick Wilson, Dolph Lundgren, Yahya Abdul-Mateen II và Nicole Kidman vào các vai phụ. Đây cũng là bộ phim người đóng thứ ba có sự xuất hiện của nhân vật Aquaman, sau Batman đại chiến Superman: Ánh sáng công lý (2016) và Liên minh Công lý (2017), và cũng là phim điện ảnh đầu tiên có nội dung xoay quanh nhân vật này. Trong Aquaman: Đế vương Atlantis, Arthur Curry, người thừa kế của vương quốc dưới đáy biển Atlantis, phải thực hiện nghĩa vụ trị vì vương quốc của mình và trở thành một siêu anh hùng của cả hai thế giới dưới nước và trên bờ trong khi Orm, người em trai cùng mẹ khác cha của Arthur đang cố gắng hợp nhất bảy vương quốc để chống lại thế giới mặt đất.`} */}
               {this.state.movie.description}
               </CardText>
 
               <h5>🎥 Thể loại</h5>
               <CardText>
-                {/* {`Kinh dị`} */}
                 {this.state.movie.types}
               </CardText>
 
               <h5>🎥 Các diễn viên chính</h5>
               <CardText>
-                {/* {`Alan walker, Truong Anh Quoc`} */}
                 {this.state.movie.main_actors}
               </CardText>
             </CardBody>
@@ -188,11 +193,17 @@ export default class Movie extends Component {
               <hr />
 
               <Form className="rating-form"
-                onSubmit={this.onSubmit}>
-              {({ formState }) => (
+                onSubmit={this.onSubmitComment}>
+              {({ formState, formApi }) => (
                 <div>
                   <h5>Đánh giá của bạn</h5>
                   <Rating 
+                    initialRating={formState.values.point}
+                    onChange={(val) => {
+                      let vals = Object.assign({}, formState.values);
+                      vals.point = val;
+                      formApi.setValues(vals);
+                    }}
                     className="rating-stars"
                     emptySymbol="fa fa-star-o fa-2x"
                     fullSymbol="fa fa-star fa-2x"

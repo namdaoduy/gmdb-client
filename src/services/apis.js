@@ -9,6 +9,12 @@ class _API {
     return result;
   }
 
+  async getMoviesByName(name) {
+    const res = await fetch(API_URL + "/movies/name/" + name);
+    const result = await res.json();
+    return result;
+  }
+
   async getMovieById(movie_id) {
     const res = await fetch(API_URL + "/movies/id/" + movie_id);
     const result = await res.json();
@@ -38,6 +44,23 @@ class _API {
 
   async getComments(movie_id) {
     const res = await fetch(API_URL + "/movies/" + movie_id + "/comments");
+    const result = await res.json();
+    return result;
+  }
+
+  async postComment(movie_id, name, email, comment, point) {
+    const res = await fetch(API_URL + "/movies/" + movie_id + "/comments", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        comment: comment,
+        point: point
+      })
+    });
     const result = await res.json();
     return result;
   }

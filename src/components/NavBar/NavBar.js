@@ -10,14 +10,22 @@ export default class NavBar extends Component {
     this.state = {
       collapse: false,
       isWideEnough: false,
+      value: ""
     };
     this.onClick = this.onClick.bind(this);
+    this.handleSubmit = this.props.handleSubmit;
   }
 
   onClick() {
     this.setState({
       collapse: !this.state.collapse,
     });
+  }
+
+  onSubmit = (e) => {
+    if (e.key === 'Enter') {
+      this.handleSubmit(this.state.value)
+    }
   }
 
   render() {
@@ -52,7 +60,10 @@ export default class NavBar extends Component {
           </NavbarNav>
           <NavbarNav right>
             <NavItem>
-              <input className="form-control" type="text" placeholder="Tìm tên phim" aria-label="Tìm tên phim"/>
+              <input className="form-control" type="text" placeholder="Tìm tên phim" aria-label="Tìm tên phim" 
+                onChange={e => this.setState({value: e.target.value})}
+                onKeyPress={e => { this.onSubmit(e) }}
+              />
             </NavItem>
           </NavbarNav>
         </Collapse>
