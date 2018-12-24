@@ -79,3 +79,13 @@ textarea.admin-form-input {
 .admin-form-input.error {
   background-color: rgb(255, 203, 203);
 }
+
+.admin-comment {
+  width: 90%;
+  max-width: 600px;
+  margin: 0px auto 30px auto;
+}
+
+.admin-comment .comment-card {
+  margin: 20px auto;
+}

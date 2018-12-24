@@ -14,6 +14,8 @@ export default class MainRouter extends Component {
           <Route exact path="/login" component={Login}/>
           <Route path="/admin" component={Admin}/>
           <Route exact path="/movie/:movie_id" component={Movie}/>
+          <Route path="/search/:search" render={(props) => <Home key={"home"+Date.now()} {...props}/>}/>
+          <Route path="/type/:type" render={(props) => <Home key={"home"+Date.now()} {...props}/>}/>
         </div>
       </Router>
     )

@@ -64,7 +64,14 @@ class Movie extends Component {
   }
 
   onSubmit = (vals) => {
-    console.log(vals)
+    API.putMovieById(vals)
+    .then(res => {
+      this.setState({
+        editing: false,
+        movie: vals
+      })
+    })
+    .catch(err => console.log(err))
   }
 
   render() {

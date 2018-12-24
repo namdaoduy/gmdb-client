@@ -39,23 +39,26 @@ export default class NavBar extends Component {
         <Collapse isOpen={this.state.collapse} navbar>
           <NavbarNav left>
             <NavItem active>
-              <NavLink to="#" className="nav-custom">Trang chủ</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="#" className="nav-custom">Lịch chiếu</NavLink>
+              <NavLink to="/" className="nav-custom">Trang chủ</NavLink>
             </NavItem>
             <NavItem>
               <Dropdown>
                 <DropdownToggle nav caret className="nav-custom">Thể loại</DropdownToggle>
                 <DropdownMenu className="drop-menu-custom">
-                  <DropdownItem href="#">Đang chiếu</DropdownItem>
-                  <DropdownItem href="#">Sắp chiếu</DropdownItem>
-                  <DropdownItem divider/>
-                  <DropdownItem href="#">Công nghệ</DropdownItem>
-                  <DropdownItem href="#">Hội thảo</DropdownItem>
-                  <DropdownItem href="#">Giải trí</DropdownItem>
+                  <DropdownItem href="/type/Action">Hành động</DropdownItem>
+                  <DropdownItem href="/type/Adventure">Phiêu lưu</DropdownItem>
+                  <DropdownItem href="/type/Science">Khoa học</DropdownItem>
+                  <DropdownItem href="/type/Fiction">Gỉa tưởng</DropdownItem>
+                  <DropdownItem href="/type/Horror">Kinh dị</DropdownItem>
+                  <DropdownItem href="/type/Family">Gia đình</DropdownItem>
+                  <DropdownItem href="/type/Comedy">Hài</DropdownItem>
+                  <DropdownItem href="/type/Romance">Tình cảm</DropdownItem>
+                  <DropdownItem href="/type/Drama">Tâm lý</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/login" className="nav-custom">Quản lý</NavLink>
             </NavItem>
           </NavbarNav>
           <NavbarNav right>

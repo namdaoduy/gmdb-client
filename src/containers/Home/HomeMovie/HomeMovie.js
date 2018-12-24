@@ -7,10 +7,7 @@ export default class HomeMovie extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      movie: this.props.movie || {},
-      id: this.props.movie.id || 0,
-      image_url: this.props.movie.image_url || "",
-      name: this.props.movie.name || ""
+      movie: this.props.movie || {}
     }
   }
 
@@ -18,15 +15,15 @@ export default class HomeMovie extends Component {
     return (
       <div className="home-movie col-lg-3 col-md-4 col-sm-6">
         <div className="home-movie-inner">
-          <Link to={`/movie/${this.state.movie_id}`}>
+          <Link to={`/movie/${this.state.movie.movie_id || 0}`}>
             <div className="home-movie-img-ctn">
               <img className="home-movie-img" 
-                src={Server + this.state.image_url} alt="">
+                src={Server + this.state.movie.image_url} alt="">
               </img>
             </div>
             <div className="home-movie-des-ctn">
               <h3 className="home-movie-des-title">
-                {this.state.name}
+                {this.state.movie.name || ""}
               </h3>
             </div>
           </Link>

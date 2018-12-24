@@ -15,8 +15,26 @@ class _API {
     return result;
   }
 
+  async getMoviesByType(movie_type) {
+    const res = await fetch(API_URL + "/movies/type/" + movie_type);
+    const result = await res.json();
+    return result;
+  }
+
   async getMovieById(movie_id) {
     const res = await fetch(API_URL + "/movies/id/" + movie_id);
+    const result = await res.json();
+    return result;
+  }
+
+  async putMovieById(movie) {
+    const res = await fetch(API_URL + "/movies/id/" + movie.movie_id, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "PUT",
+      body: JSON.stringify(movie)
+    });
     const result = await res.json();
     return result;
   }

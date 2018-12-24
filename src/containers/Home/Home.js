@@ -11,30 +11,43 @@ export default class Home extends Component {
     super(props);
     this.state = {
       movies: [],
-      title: "Danh sách phim đang chiếu"
+      title: "Danh sách phim đang chiếu",
+      search: this.props.match.params.search || null,
+      type: this.props.match.params.type || null,
     }
   }
 
   onSearch = (text) => {
-    if (text) {
-      API.getMoviesByName(text)
-      .then(res => {
-        this.setState({movies: []}, () => {
-          this.setState({
-            movies: res,
-            title: `Tìm kiếm phim "${text}"`
-          })
-        })
-      })
-      .catch(err => console.log(err))
-    }
+    if (text)
+      this.props.history.push('/search/' +  encodeURIComponent(text))
   }
 
   fetchMovies = () => {
     API.getMovies()
     .then(res => {
-      console.log(res)
       this.setState({movies: res})
+    })
+    .catch(err => console.log(err))
+  }
+
+  fetchSearch = (text) => {
+    API.getMoviesByName(text)
+    .then(res => {
+      this.setState({
+        movies: res,
+        title: `Tìm kiếm phim "${text}"`
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
+  fetchType = (text) => {
+    API.getMoviesByType(text)
+    .then(res => {
+      this.setState({
+        movies: res,
+        title: `Tìm kiếm thể loại "${text}"`
+      })
     })
     .catch(err => console.log(err))
   }
@@ -47,7 +60,15 @@ export default class Home extends Component {
   }
 
   componentDidMount = () => {
-    this.fetchMovies();
+    if (this.state.search) {
+      this.fetchSearch(this.state.search)
+    }
+    else if (this.state.type) {
+      this.fetchType(this.state.type)
+    }
+    else {
+      this.fetchMovies();
+    }
   }
 
   render() {
