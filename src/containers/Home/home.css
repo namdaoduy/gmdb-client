@@ -6,6 +6,10 @@
   margin-bottom: 30px;
 }
 
+.home-carousel .carousel-item {
+  height: 70vh !important;
+}
+
 @media (max-width: 1200px) {
   .home-carousel {
     margin-top: 0;

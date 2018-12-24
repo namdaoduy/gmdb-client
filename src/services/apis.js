@@ -104,6 +104,12 @@ class _API {
     const result = await res.json();
     return result;
   }
+
+  async getCrawlNew() {
+    const res = await fetch(API_URL + "/movies/crawl");
+    const result = await res.json();
+    return result;
+  }
 }
 
 const API = new _API();

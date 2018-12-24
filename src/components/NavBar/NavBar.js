@@ -47,8 +47,7 @@ export default class NavBar extends Component {
                 <DropdownMenu className="drop-menu-custom">
                   <DropdownItem href="/type/Action">Hành động</DropdownItem>
                   <DropdownItem href="/type/Adventure">Phiêu lưu</DropdownItem>
-                  <DropdownItem href="/type/Science">Khoa học</DropdownItem>
-                  <DropdownItem href="/type/Fiction">Gỉa tưởng</DropdownItem>
+                  <DropdownItem href="/type/Fiction">Khoa học viễn tưởng</DropdownItem>
                   <DropdownItem href="/type/Horror">Kinh dị</DropdownItem>
                   <DropdownItem href="/type/Family">Gia đình</DropdownItem>
                   <DropdownItem href="/type/Comedy">Hài</DropdownItem>

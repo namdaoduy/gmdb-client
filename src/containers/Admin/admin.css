@@ -46,7 +46,7 @@
   margin: 20px auto;
 }
 
-.admin-movie {
+.admin-movie, .admin-function {
   width: 90%;
   max-width: 800px;
   margin: 0px auto 30px auto;

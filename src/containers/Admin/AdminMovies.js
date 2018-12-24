@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Card, CardBody } from 'mdbreact'
+import { Button, Card, CardBody, CardTitle, MDBIcon } from 'mdbreact'
 import { Form, Text, TextArea } from 'informed' 
 import API from './../../services/apis'
 
@@ -7,8 +7,21 @@ export default class AdminMovies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      crawling: false
     }
+  }
+
+  onCrawlNew = () => {
+    this.setState({crawling: true})
+    API.getCrawlNew()
+    .then(res => {
+      this.setState({crawling: false} , () => {
+        alert("Done");
+        this.fetchMovies()
+      })
+    })
+    .catch(err => console.log(err))
   }
 
   renderMovie = () => {
@@ -33,6 +46,20 @@ export default class AdminMovies extends Component {
     return(
       <div className="admin-movies">
         <h1>CRUD Movie</h1>
+        <Card className="admin-function">
+          <CardBody>
+            <CardTitle>Thêm phim</CardTitle>
+            <hr />
+            <Button 
+              onClick={this.onCrawlNew} 
+              color="primary"
+              disabled={this.state.crawling}>
+              {this.state.crawling ? "Please Wait ..." : "Tự động lấy phim mới"}
+              <MDBIcon icon="magic" className="ml-3"/></Button>
+            <Button color="info">Thêm bằng tay
+              <MDBIcon icon="hand-spock-o" className="ml-3"/></Button>
+          </CardBody>
+        </Card>
         {
           this.renderMovie()
         }
