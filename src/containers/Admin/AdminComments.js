@@ -80,6 +80,17 @@ class Comment extends Component {
     }
   }
 
+  onDelete = () => {
+    const del = window.confirm("Are you sure to delete this comment?");
+    if (del) {
+      API.deleteComment(this.state.comment.movie_id, this.state.comment.rate_id)
+      .then(res => {
+        window.location.reload()
+      })
+      .catch(err => console.log(err))
+    }
+  }
+
   render() {
     return(
       <Card className="comment-card">
@@ -99,8 +110,7 @@ class Comment extends Component {
             {this.state.comment.comment}
           </CardText>
           <hr />
-          <Button color="danger" size="sm">Hide</Button>
-          <Button color="primary" size="sm">Show</Button>
+          <Button onClick={this.onDelete} color="danger" size="sm">Delete</Button>
 
         </CardBody>
       </Card>

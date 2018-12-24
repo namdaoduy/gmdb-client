@@ -44,6 +44,7 @@ export default class Home extends Component {
   fetchType = (text) => {
     API.getMoviesByType(text)
     .then(res => {
+      console.log(res)
       this.setState({
         movies: res,
         title: `Tìm kiếm thể loại "${text}"`

@@ -63,6 +63,17 @@ class Movie extends Component {
     this.setState({editing: false})
   }
 
+  onDelete = () => {
+    const del = window.confirm("Are you sure to delete this movie?");
+    if (del) {
+      API.deleteMovieById(this.state.movie.movie_id)
+      .then(res => {
+        window.location.reload()
+      })
+      .catch(err => console.log(err))
+    }
+  }
+
   onSubmit = (vals) => {
     API.putMovieById(vals)
     .then(res => {
@@ -202,7 +213,7 @@ class Movie extends Component {
             </table>
             <hr />
             <Button onClick={this.onEdit} color="primary" size="sm">Edit</Button>
-            <Button color="danger" size="sm">Delete</Button>
+            <Button onClick={this.onDelete} color="danger" size="sm">Delete</Button>
           </CardBody>
         </Card>
       )

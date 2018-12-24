@@ -39,6 +39,17 @@ class _API {
     return result;
   }
 
+  async deleteMovieById(movie_id) {
+    const res = await fetch(API_URL + "/movies/id/" + movie_id, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "DELETE"
+    });
+    const result = await res.json();
+    return result;
+  }
+
   async getMovieShowtime(movie_id) {
     const res = await fetch(API_URL + "/showtime/" + movie_id);
     const result = await res.json();
@@ -78,6 +89,17 @@ class _API {
         comment: comment,
         point: point
       })
+    });
+    const result = await res.json();
+    return result;
+  }
+
+  async deleteComment(movie_id, rate_id) {
+    const res = await fetch(API_URL + "/movies/" + movie_id + "/comments/" + rate_id, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "DELETE"
     });
     const result = await res.json();
     return result;
