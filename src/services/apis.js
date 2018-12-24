@@ -110,6 +110,21 @@ class _API {
     const result = await res.json();
     return result;
   }
+
+  async postHintShowtime(movie_id, position) {
+    const res = await fetch(API_URL + "/nearestcine/" + movie_id, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        latitude: position.lat,
+        longitude: position.lng
+      })
+    });
+    const result = await res.json();
+    return result;
+  }
 }
 
 const API = new _API();

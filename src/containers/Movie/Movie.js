@@ -5,6 +5,7 @@ import { Footer } from './../../components/Footer'
 import { Button, Card, CardBody, CardTitle, CardText } from 'mdbreact'
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container } from 'mdbreact';
 import { Form, Text, TextArea } from 'informed'
+import LocationPicker from 'react-location-picker';
 import Rating from 'react-rating'
 import { Comment } from './Comment'
 import API from "./../../services/apis"
@@ -19,7 +20,14 @@ export default class Movie extends Component {
       movie: {},
       comments: [],
       collapseID: [1,1,1,1,1,1,1,1,1,1],
-      cines: []
+      cines: [],
+      position: {
+        lat: 21.04192103737484,
+        lng: 105.81603412628169
+      },
+      address: "",
+      hinting: false,
+      hints: []
     }
   }
 
@@ -37,6 +45,24 @@ export default class Movie extends Component {
     API.postComment(this.state.movie_id, vals.name, vals.email, vals.comment, vals.point || 4)
     .then(res => {
       this.fetchComments();
+    })
+    .catch(err => console.log(err))
+  }
+
+  changeLocation = ({position, address}) => {
+    console.log(position, address)
+    this.setState({position, address})
+  }
+
+  hintShowtime = () => {
+    this.setState({hinting: true})
+    API.postHintShowtime(this.state.movie_id, this.state.position)
+    .then(res => {
+      console.log(res)
+      this.setState({
+        hinting: false,
+        hints: res
+      })
     })
     .catch(err => console.log(err))
   }
@@ -87,6 +113,22 @@ export default class Movie extends Component {
   renderComments = () => {
     return this.state.comments.map((comment) => (
       <Comment comment={comment} />
+    ))
+  }
+
+  renderHint = () => {
+    return this.state.hints.map((cine) => (
+      <div class="movie-hint">
+        <span>{cine.name}</span>
+        {
+          cine.showtime.map((time) => (
+            <a href="https://www.cgv.vn/"
+              className="movie-showtime">
+              {time}
+            </a>
+          ))
+        }
+      </div>
     ))
   }
 
@@ -183,7 +225,27 @@ export default class Movie extends Component {
               <CardTitle>Lịch chiếu</CardTitle>
               <hr />
               {this.renderCines()}
-
+              <hr />
+              <h5>Chọn địa điểm để tìm xuất chiếu tuyệt nhất cho bạn!</h5>
+              <LocationPicker
+                containerElement={ <div style={ {height: '100%'} } /> }
+                mapElement={ <div style={ {height: '500px'} } /> }
+                defaultPosition={{
+                  lat: 21.04192103737484,
+                  lng: 105.81603412628169
+                }}
+                zoom={15}
+                radius={-1}
+                onChange={this.changeLocation}
+              />
+              <h5>{this.state.address}</h5>
+              <Button 
+                onClick={this.hintShowtime}
+                disabled={this.state.hinting} 
+                color="primary">Gợi ý suất chiếu!</Button>
+              {
+                this.renderHint()
+              }
             </CardBody>
           </Card>
 

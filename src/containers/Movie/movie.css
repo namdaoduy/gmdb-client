@@ -128,3 +128,18 @@ textarea.rate-form-input {
   background-color: #ccc;
   color: darkgrey !important;
 }
+
+.movie-hint {
+  height: 50px;
+}
+
+.movie-hint span {
+  height: 40px;
+  margin: 5px 10px;
+  min-width: 200px;
+  display: inline-block;
+}
+
+.movie-hint a {
+  padding: 5px;
+}
